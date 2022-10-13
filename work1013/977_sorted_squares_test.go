@@ -14,16 +14,11 @@ func TestSortedSquares(t *testing.T) {
 	}
 
 	for _, v := range data {
-		flag := true
 		//比较排序后是否和答案一致
 		for i := 0; i < len(v.answer); i++ {
-			//发现不一致转换flag标识为false
 			if sortedSquares(v.val)[i] != v.answer[i] {
-				flag = false
+				t.Fatalf("expect:[%v] != result[%v]", sortedSquares(v.val), v.answer)
 			}
-		}
-		if !flag {
-			t.Fatalf("expect:[%v] != result[%v]", sortedSquares(v.val), v.answer)
 		}
 	}
 }
