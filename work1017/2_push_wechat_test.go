@@ -53,7 +53,7 @@ func pushWeChat(title, desp string) (string, string, string) {
 	//从文件读取sendkey
 	f, err := os.Open("sendkey.txt")
 	if err != nil {
-    	panic(err)
+    		panic(err)
 	}
 	defer f.Close()
 	reader := bufio.NewReader(f)
