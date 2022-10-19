@@ -57,7 +57,7 @@ func pushWeChat(title, desp string) (string, string, string) {
 	}
 	defer f.Close()
 	reader := bufio.NewReader(f)
-	line, _, errs := reader.ReadLine()
+	line, _, err := reader.ReadLine()
     	if err != nil {
     		panic(errs)
     	}
