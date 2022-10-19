@@ -58,9 +58,9 @@ func pushWeChat(title, desp string) (string, string, string) {
 	defer f.Close()
 	reader := bufio.NewReader(f)
 	line, _, errs := reader.ReadLine()
-    if err != nil {
-    	panic(errs)
-    }
+    	if err != nil {
+    		panic(errs)
+    	}
 	//发送get请求
 	resp, err := http.Get(api + string(line) + ".send?title=" + title + "&desp=" + desp)
 	if err != nil {
