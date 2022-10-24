@@ -3,6 +3,7 @@ package work1017
 import (
 	"bufio"
 	"encoding/json"
+
 	//"fmt"
 	"io"
 	"net/http"
@@ -47,20 +48,20 @@ func pushWeChat(title, desp string) (string, string, string) {
 	// s := bufio.NewScanner(os.Stdin)
 	// fmt.Print("请输入您的密钥：")
 	// if !s.Scan() {
-	// 	return 
+	// 	return
 	// }
 
 	//从文件读取sendkey
 	f, err := os.Open("sendkey.txt")
 	if err != nil {
-    		panic(err)
+		panic(err)
 	}
 	defer f.Close()
 	reader := bufio.NewReader(f)
 	line, _, err := reader.ReadLine()
-    	if err != nil {
-    		panic(errs)
-    	}
+	if err != nil {
+		panic(err)
+	}
 	//发送get请求
 	resp, err := http.Get(api + string(line) + ".send?title=" + title + "&desp=" + desp)
 	if err != nil {
